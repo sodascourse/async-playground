@@ -6,5 +6,5 @@
 4. Build the framework (By `Xcode > Product > Build` or `Command+B`)
 5. Open the `AsyncPlayground` playground in the workspace
 
->>> NOTE: Remember to check how to update **git-submodule** when pulling this repository in the future.
+> NOTE: Remember to check how to update **git-submodule** when pulling this repository in the future.
 
