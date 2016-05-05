@@ -1,7 +1,6 @@
 //: # Asynchronous Tasks
 
 import Foundation
-import Async
 import XCPlayground
 
 // Set this property to make the Playground keep executing for async tasks
@@ -32,13 +31,13 @@ let mySerailLowQueue = dispatch_queue_create("tw.sodas.myqueue-low", qos)
 //: It doesn't wait for the task completion.
 //:
 
-print("01: Start: \(NSDate().timeIntervalSince1970)")
-dispatch_async(defaultGlobalQueue) {
-    sleep(1)  // C's sleep call to make current thread sleep
-    NSThread.isMainThread()
-    print("01: Async: \(NSDate().timeIntervalSince1970)")
-}
-print("01: After: \(NSDate().timeIntervalSince1970)")
+//print("01: Start: \(NSDate().timeIntervalSince1970)")
+//dispatch_async(defaultGlobalQueue) {
+//    sleep(1)  // C's sleep call to make current thread sleep
+//    NSThread.isMainThread()
+//    print("01: Async: \(NSDate().timeIntervalSince1970)")
+//}
+//print("01: After: \(NSDate().timeIntervalSince1970)")
 
 //: ### Using `dispatch_sync` and **global queues**
 //:
@@ -48,12 +47,12 @@ print("01: After: \(NSDate().timeIntervalSince1970)")
 //: NOTE: be careful about the dead lock issue when using `dispatch_sync` and serial queues
 //:
 
-print("02: Start: \(NSDate().timeIntervalSince1970)")
-dispatch_sync(defaultGlobalQueue) {
-    sleep(1)  // C's sleep call to make current thread sleep
-    print("02: Sync:  \(NSDate().timeIntervalSince1970)")
-}
-print("02: After: \(NSDate().timeIntervalSince1970)")
+//print("02: Start: \(NSDate().timeIntervalSince1970)")
+//dispatch_sync(defaultGlobalQueue) {
+//    sleep(1)  // C's sleep call to make current thread sleep
+//    print("02: Sync:  \(NSDate().timeIntervalSince1970)")
+//}
+//print("02: After: \(NSDate().timeIntervalSince1970)")
 
 //: ## Using `Async` library
 
@@ -70,15 +69,15 @@ print("03: After: \(NSDate().timeIntervalSince1970)")
 
 //: ### dispatch_group with Async lib
 
-let taskGroup = AsyncGroup()
-print("group: Start: \(NSDate().timeIntervalSince1970)")
-taskGroup.userInitiated { 
-    sleep(2)
-    print("group: First task done: \(NSDate().timeIntervalSince1970)")
-}
-taskGroup.background { 
-    sleep(1)
-    print("group: Second task done: \(NSDate().timeIntervalSince1970)")
-}
-taskGroup.wait()
-print("group: Finished: \(NSDate().timeIntervalSince1970)")
+//let taskGroup = AsyncGroup()
+//print("group: Start: \(NSDate().timeIntervalSince1970)")
+//taskGroup.userInitiated { 
+//    sleep(2)
+//    print("group: First task done: \(NSDate().timeIntervalSince1970)")
+//}
+//taskGroup.background { 
+//    sleep(1)
+//    print("group: Second task done: \(NSDate().timeIntervalSince1970)")
+//}
+//taskGroup.wait()
+//print("group: Finished: \(NSDate().timeIntervalSince1970)")
